@@ -1,98 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝚃𝙾𝙺𝙴𝙽 𝙲𝙷𝙴𝙲𝙺𝙴𝚁</title>
-    <style>
-        /* CSS for styling elements */
-        .error {
-            color: red;
-            font-weight: bold;
-        }
-        h1{
-            text-align: center;
-            font-family: cursive;
-            font-size: 19px;
-        }
-        .btn, input {
-            height: 40px;
-            width: 100%;
-            margin-top: 20px;
-            background-color: green;
-            border: none;
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        input {
-            background: none;
-            outline: none;
-            border: 2px solid white;
-            color: white;
-            padding: 10px;
-            background-color: transparent;
-        }
-        h2{
-            text-align: center;
-            font-size: 15px;
-            color: white;
-        }
-        label{
-            color: white;
-        }
-        body{
-            background-image: url('https://i.ibb.co/c6ymGf7/1726165720994.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center; /* Center the background image */
-            background-attachment: fixed; /* Keep the background fixed on scroll */
-            color: white;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .container {
-            max-width: 350px;
-            width: 100%;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 0 15px white;
-            border: none;
-            resize: none;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #888;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1>Facebook Token Checker</h1>
-    <form method="post">
-        <input type="text" name="access_token" placeholder="𝙴𝙽𝚃𝙴𝚁 𝚃𝙾𝙺𝙴𝙽" required>
-        <button class="btn" type="submit">𝙲𝙷𝙴𝙲𝙺 𝚃𝙾𝙺𝙴𝙽</button>
+<html>
+  <head>
+    <title>Facebook Token Extractor</title>
+  </head>
+  <body>
+    <h1>Facebook Token Extractor</h1>
+    <form action="" method="post">
+      <label for="fb_id_token">Enter Facebook ID Token:</label>
+      <input type="text" id="fb_id_token" name="fb_id_token" required>
+      <button type="submit">Extract Tokens</button>
     </form>
-    
-    {% if error_message %}
-        <p class="error">{{ error_message }}</p>
-    {% elif profile_name %}
-        <p>Your Profile Name: {{ profile_name }}</p>
-    {% endif %}
-    
-    <footer>
-        <h2>𝚂𝙰𝙷𝙸𝙻 𝙾𝙽𝙵𝙸𝚁𝙴</h2>
-    </footer>
-</div>
 
-</body>
+    {% if page_token %}
+      <h2>Page Token:</h2>
+      <p>{{ page_token }}</p>
+    {% endif %}
+
+    {% if another_profile_token %}
+      <h2>Another Profile Token:</h2>
+      <p>{{ another_profile_token }}</p>
+    {% endif %}
+
+    {% if error_message %}
+      <h2>Error:</h2>
+      <p>{{ error_message }}</p>
+    {% endif %}
+  </body>
 </html>
