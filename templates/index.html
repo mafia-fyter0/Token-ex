@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Facebook Token Extractor</title>
-</head>
-<body>
-    <h1>Facebook Token Extractor</h1>
-    <form method="POST">
-        <label for="fb_id_token">Facebook ID Token:</label>
-        <input type="text" id="fb_id_token" name="fb_id_token"><br><br>
-        <label for="fb_id">Facebook ID:</label>
-        <input type="text" id="fb_id" name="fb_id"><br><br>
-        <label for="another_profile_id">Another Profile ID:</label>
-        <input type="text" id="another_profile_id" name="another_profile_id"><br><br>
-        <input type="submit" value="Extract Tokens">
-    </form>
-
-    {% if pages_tokens %}
-        <h2>Pages Tokens:</h2>
-        <ul>
-        {% for page_id, token in pages_tokens.items() %}
-            <li>{{ page_id }}: {{ token }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
-
-    {% if another_profile_token %}
-        <h2>Another Profile Token:</h2>
-        <p>{{ another_profile_token }}</p>
-    {% endif %}
-
-    {% if error_message %}
-        <h2>Error:</h2>
-        <p>{{ error_message }}</p>
-    {% endif %}
-</body>
-</html>
+<h1>Main Account: {{ account_name }}</h1>
+<h2>Pages:</h2>
+<ul>
+    {% for page, token in pages_tokens.items() %}
+        <li>{{ page }} ({{ token }})</li>
+    {% endfor %}
+</ul>
+<h2>Another Profile:</h2>
+<p>Token: {{ another_profile_token }}</p>
